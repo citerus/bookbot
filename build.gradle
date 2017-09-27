@@ -13,6 +13,6 @@ dependencies {
 }
 
 jar {
-    baseName = 'bb-gradle'
+    baseName = 'bookbot'
     version = '0.1.0'
 }
