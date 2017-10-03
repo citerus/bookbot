@@ -1,11 +1,26 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
+    }
+}
+
 plugins {
     id 'java'
     id 'application'
     id 'war'
     id 'org.akhikhl.gretty' version '1.4.2'
 }
+apply plugin: 'com.google.cloud.tools.appengine'
 
 repositories {
+    maven {
+        url 'https://maven-central.storage.googleapis.com'
+    }
+    jcenter()
     mavenCentral()
 }
 
@@ -19,7 +34,9 @@ gretty {
 def jettyVersion = '9.4.7.v20170914'
 
 dependencies {
+    providedCompile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'com.google.appengine:appengine:+'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.7.19'
     testCompile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVersion
@@ -31,9 +48,21 @@ dependencies {
     testCompile 'org.seleniumhq.selenium:selenium-java:3.3.1'
 }
 
+appengine {
+    run.port = 8080
+
+    deploy {
+        stopPreviousVersion = true
+        promote = true
+    }
+}
+
+group = 'com.example.appengine'
+version = '1.0-SNAPSHOT'
+
 jar {
     baseName = 'bookbot'
     version = '0.1.0'
 }
 
-mainClassName = 'hello.HelloJohan'
+mainClassName = 'hello.Greeter'
