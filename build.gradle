@@ -12,10 +12,17 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+def jettyVersion = '9.4.7.v20170914'
+
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.7.19'
+    testCompile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVersion
+    testCompile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: jettyVersion
+    testCompile group: 'org.eclipse.jetty', name: 'jetty-annotations', version: jettyVersion
+    testCompile group: 'org.eclipse.jetty', name: 'apache-jsp', version: jettyVersion
+    testCompile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
 }
 
 jar {
