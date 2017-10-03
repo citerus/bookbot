@@ -17,6 +17,7 @@ public class HelloServletIntegrationTest {
   public void postingEmptyReturnsHelloWorld() throws Exception {
     String body = Unirest
             .post(helloURL())
+            .queryString("name", "")
             .asString()
             .getBody();
 
