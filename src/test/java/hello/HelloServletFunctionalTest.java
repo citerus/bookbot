@@ -1,4 +1,4 @@
-package org.gradle.demo;
+package hello;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;

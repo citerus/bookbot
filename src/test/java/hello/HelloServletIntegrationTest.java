@@ -1,4 +1,4 @@
-package org.gradle.demo;
+package hello;
 
 import com.mashape.unirest.http.Unirest;
 import hello.testsupport.WebappRule;

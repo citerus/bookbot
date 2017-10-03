@@ -1,4 +1,4 @@
-package org.gradle.demo;
+package hello;
 
 import hello.Greeter;
 
