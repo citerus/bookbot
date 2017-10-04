@@ -1,6 +1,6 @@
-package hello;
+package hello.infrastructure;
 
-import hello.Greeter;
+import hello.domain.Greeter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
