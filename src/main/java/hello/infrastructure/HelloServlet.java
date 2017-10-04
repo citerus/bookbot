@@ -14,7 +14,7 @@ public class HelloServlet extends HttpServlet {
     private Greeter greeter = new Greeter();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().print(greeter.sayHelloToJohan());
+        response.getWriter().print(greeter.sayHello("Johan"));
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

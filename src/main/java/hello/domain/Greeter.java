@@ -1,11 +1,8 @@
 package hello.domain;
 
 public class Greeter {
-    public String sayHelloToJohan() {
-        return "Hello, Johan";
-    }
     public String sayHello(String name) {
-        if (name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             name = "World";
         }
         return "Hello, " + name;
