@@ -10,7 +10,6 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'application'
     id 'war'
     id 'org.akhikhl.gretty' version '1.4.2'
 }
@@ -64,5 +63,3 @@ jar {
     baseName = 'bookbot'
     version = '0.1.0'
 }
-
-mainClassName = 'hello.Greeter'
