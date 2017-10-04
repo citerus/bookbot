@@ -23,8 +23,8 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 gretty {
     integrationTestTask = 'test'
@@ -33,9 +33,10 @@ gretty {
 def jettyVersion = '9.4.7.v20170914'
 
 dependencies {
-    providedCompile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'com.google.appengine:appengine:+'
+    compile group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
+    compile group: 'org.apache.taglibs', name: 'taglibs-standard-spec', version: '1.2.5'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.7.19'
     testCompile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVersion
