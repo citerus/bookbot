@@ -1,4 +1,4 @@
-package hello;
+package hello.infrastructure;
 
 import com.mashape.unirest.http.Unirest;
 import hello.testsupport.WebappRule;

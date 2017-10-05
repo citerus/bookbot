@@ -1,4 +1,4 @@
-package hello;
+package hello.infrastructure;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
