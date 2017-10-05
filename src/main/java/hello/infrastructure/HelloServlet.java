@@ -22,9 +22,11 @@ public class HelloServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
-        guestRepository.addGuest(name);
 
         request.setAttribute("greeting", greeter.sayHello(name));
+        request.setAttribute("guests", guestRepository.listGuests());
+
         request.getRequestDispatcher("response.jsp").forward(request, response);
+        guestRepository.addGuest(name);
     }
 }
