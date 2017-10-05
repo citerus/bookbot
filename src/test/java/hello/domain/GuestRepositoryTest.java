@@ -9,7 +9,12 @@ import java.util.Collections;
 import static org.junit.Assert.*;
 
 public class GuestRepositoryTest {
-    protected GuestRepository guests = new GuestRepositoryInMemory();
+    private GuestRepository guests = new GuestRepositoryInMemory();
+
+    @Before
+    public void setUp() throws Exception {
+        GuestRepositoryInMemory.emptyList();
+    }
 
     @Test
     public void testListGuestReturnsEmptyListWhenNoGuestsHaveArrived() throws Exception {
@@ -27,5 +32,17 @@ public class GuestRepositoryTest {
         guests.addGuest("Johan");
         guests.addGuest("Erika");
         assertEquals(Arrays.asList("Johan", "Erika"), guests.listGuests());
+    }
+
+    @Test
+    public void testNoGuestName() throws Exception {
+        guests.addGuest("");
+        assertTrue(guests.listGuests().isEmpty());
+    }
+
+    @Test
+    public void testNullAsGuestName() throws Exception {
+        guests.addGuest(null);
+        assertTrue(guests.listGuests().isEmpty());
     }
 }

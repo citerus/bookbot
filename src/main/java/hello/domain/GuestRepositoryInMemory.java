@@ -3,6 +3,7 @@ package hello.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class GuestRepositoryInMemory implements GuestRepository {
     private static List<String> guestList = Collections.synchronizedList(new ArrayList<>());
@@ -18,6 +19,9 @@ public class GuestRepositoryInMemory implements GuestRepository {
 
     @Override
     public void addGuest(String guest) {
+        if (guest == null || guest.isEmpty()) {
+            return;
+        }
         guestList.add(guest);
     }
 }
