@@ -1,11 +1,18 @@
 package hello.domain;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GuestRepositoryInMemory implements GuestRepository {
+    private List<String> guestList = new ArrayList<>();
+
     @Override
     public List<String> listGuests() {
-        return Collections.emptyList();
+        return guestList;
+    }
+
+    @Override
+    public void addGuest(String guest) {
+        guestList.add(guest);
     }
 }
