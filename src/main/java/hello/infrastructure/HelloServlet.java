@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "HelloServlet", urlPatterns = {"hello"}, loadOnStartup = 1)
+@WebServlet(name = "HelloServlet", urlPatterns = {"hello"})
 public class HelloServlet extends HttpServlet {
     private Greeter greeter = new Greeter();
 

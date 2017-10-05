@@ -14,6 +14,16 @@ public class HelloServletIntegrationTest {
   public static WebappRule RULE = new WebappRule();
 
   @Test
+  public void goingStraightToGreetingJohan() throws Exception {
+      String body = Unirest
+              .get(helloURL())
+              .asString()
+              .getBody();
+
+      assertThat(body, containsString("Hello, Johan"));
+  }
+
+  @Test
   public void postingEmptyReturnsHelloWorld() throws Exception {
     String body = Unirest
             .post(helloURL())
@@ -28,11 +38,11 @@ public class HelloServletIntegrationTest {
   public void postingNameReturnsNamedGreeting() throws Exception {
     String body = Unirest
             .post(helloURL())
-            .queryString("name", "Johan")
+            .queryString("name", "Erika")
             .asString()
             .getBody();
 
-    assertThat(body, containsString("Hello, Johan"));
+    assertThat(body, containsString("Hello, Erika"));
   }
 
   private String helloURL() {
