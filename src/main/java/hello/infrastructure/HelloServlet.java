@@ -1,6 +1,8 @@
 package hello.infrastructure;
 
 import hello.domain.Greeter;
+import hello.domain.GuestRepository;
+import hello.domain.GuestRepositoryInMemory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "HelloServlet", urlPatterns = {"hello"})
 public class HelloServlet extends HttpServlet {
     private Greeter greeter = new Greeter();
+    private GuestRepository guestRepository = new GuestRepositoryInMemory();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().print(greeter.sayHello("Johan"));
@@ -19,6 +22,7 @@ public class HelloServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
+        guestRepository.addGuest(name);
 
         request.setAttribute("greeting", greeter.sayHello(name));
         request.getRequestDispatcher("response.jsp").forward(request, response);
