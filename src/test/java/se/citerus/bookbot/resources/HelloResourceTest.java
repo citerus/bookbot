@@ -20,6 +20,13 @@ public class HelloResourceTest {
     }
 
     @Test
+    public void testGetHelloWithQueryParameter() throws Exception {
+        assertEquals("Hello, Fredrika!",
+                helloResources.target("/hello").queryParam("name", "fredrika")
+                        .request().get(String.class));
+    }
+
+    @Test
     public void testGetHelloErika() throws Exception {
         assertEquals("Hello, Erika!",
                 helloResources.target("/hello/erika").request().get(String.class));
