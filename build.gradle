@@ -20,4 +20,5 @@ repositories {
 }
 dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-core', version:'1.2.0'
+    testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version: '1.2.0'
 }
