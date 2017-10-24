@@ -1,10 +1,11 @@
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'application'
 
 group = 'se.citerus'
 version = '1.0-SNAPSHOT'
 
 description = """BookBot"""
+mainClassName = "se.citerus.bookbot.BookBotApplication"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -12,13 +13,13 @@ tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
 
-
-
 repositories {
-        
      maven { url "http://repo.maven.apache.org/maven2" }
 }
+
 dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-core', version:'1.2.0'
     testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version: '1.2.0'
 }
+
+task stage(dependsOn: ['build', 'installDist'])
