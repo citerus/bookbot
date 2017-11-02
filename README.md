@@ -3,10 +3,10 @@
 Hello Johan!
 
 
-### How to start the dropwizard-project application
+### How to start the bookbot application
 
-1. Run `mvn clean install` to build your application
-1. Start application with `java -jar target/dropwizard-project-1.0-SNAPSHOT.jar server config.yml`
+1. Run `./gradlew stage` to build your application
+1. Start application with `java -jar target/bookbot-1.0-SNAPSHOT.jar server config.yml`
 1. To check that your application is running enter url `http://localhost:8080`
 
 ### Health Check
