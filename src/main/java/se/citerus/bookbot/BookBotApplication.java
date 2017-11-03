@@ -4,6 +4,7 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import se.citerus.bookbot.health.HelloHealthCheck;
+import se.citerus.bookbot.resources.BookBotResource;
 import se.citerus.bookbot.resources.HelloResource;
 
 public class BookBotApplication extends Application<BookBotConfiguration> {
@@ -26,6 +27,7 @@ public class BookBotApplication extends Application<BookBotConfiguration> {
     public void run(final BookBotConfiguration c,
                     final Environment e) {
         e.jersey().register(new HelloResource());
+        e.jersey().register(new BookBotResource());
         HelloResource helloResource = null;
         e.healthChecks().register("", new HelloHealthCheck(helloResource));
 
