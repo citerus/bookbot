@@ -15,7 +15,7 @@ public class BookBotApplicationTest {
     @ClassRule
     public static final DropwizardAppRule<BookBotConfiguration> RULE =
             new DropwizardAppRule<BookBotConfiguration>(BookBotApplication.class,
-                    ResourceHelpers.resourceFilePath("../resources/test.yml"));
+                    ResourceHelpers.resourceFilePath("test.yml"));
 
     @Test
     public void startApplicationTest() throws Exception {
