@@ -9,7 +9,7 @@ import javax.ws.rs.QueryParam;
 public class HelloResource {
 
     @GET
-    public String getHello(@QueryParam("name") String name) {
+    public String getHello(@QueryParam("user_name") String name) {
         if (name == null) {
             return "Hello, Johan!";
         } else {

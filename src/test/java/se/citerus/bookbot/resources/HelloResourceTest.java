@@ -22,7 +22,7 @@ public class HelloResourceTest {
     @Test
     public void testGetHelloWithQueryParameter() throws Exception {
         assertEquals("Hello, Fredrika!",
-                helloResources.target("/hello").queryParam("name", "fredrika")
+                helloResources.target("/hello").queryParam("user_name", "fredrika")
                         .request().get(String.class));
     }
 
@@ -33,7 +33,7 @@ public class HelloResourceTest {
     }
 
     @Test
-    public void testHelloRandom() throws Exception {
+    public void testGetHelloRandom() throws Exception {
         assertEquals("Hello, Random!",
                 helloResources.target("/hello/rANdOm").request().get(String.class));
     }
